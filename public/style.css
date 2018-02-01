@@ -1,0 +1,24 @@
+body {
+	/*background-image: url(https://orig00.deviantart.net/9338/f/2007/280/f/5/tech_background_by_internetnerdette.jpg);*/
+	/*background-position: center;*/
+	background: 
+		linear-gradient(hsla(240, 100%, 90%, 0.5), hsla(240, 100%, 90%, 0.5)),
+		/*linear-gradient(rgba(0, 0, 255, 0.3), rgba(0, 0, 255, 0.3))*/
+	    url(https://orig00.deviantart.net/9338/f/2007/280/f/5/tech_background_by_internetnerdette.jpg);
+}
+
+.container {
+	margin-top: 100px;
+}
+
+#comments{
+	float: right;
+	width: 40%;
+	background-color: darkgray;
+	color: white;
+}
+/*#article {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}*/
+
