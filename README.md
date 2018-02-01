@@ -7,13 +7,13 @@ Users can leave comments on the articles.
 
 Tools used:
 
-Materialize
-CSS
-JQuery
-AJAX
-Node.js
-Express
-NPM packages
-Axios
-Cheerio
-MongoDB and Mongoose
+*Materialize
+*CSS
+*JQuery
+*AJAX
+*Node.js
+*Express
+*NPM packages
+*Axios
+*Cheerio
+*MongoDB and Mongoose
