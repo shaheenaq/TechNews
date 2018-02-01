@@ -5,7 +5,7 @@ I have built a web scraper to scrape the data from a news site.
 And then stored it as a collection on MongoDB.
 Users can leave comments on the articles.
 
-###Tools used:
+### Tools used:
 
 * Materialize
 * CSS
