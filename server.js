@@ -19,8 +19,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static("public"));
 
+// If deployed, use the deployed database. Otherwise use the local mongoHeadlines database
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/news_db";
+
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/news_db", {
+mongoose.connect(MONGODB_URI, {
 	useMongoClient: true
 });
 
