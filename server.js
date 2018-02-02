@@ -24,6 +24,10 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/news_db";
 
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
+var connection = mongoose.connection;
+connection.on("connected", () => {
+	console.log("Mongoose connected successfully")
+})
 
  app.get("/scrape", function(req, res){
 
