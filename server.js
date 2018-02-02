@@ -9,7 +9,7 @@ var cheerio = require("cheerio");
 
 var db = require("./models");
 
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
 var app = express();
 
@@ -23,9 +23,7 @@ app.use(express.static("public"));
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/news_db";
 
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI, {
-	useMongoClient: true
-});
+mongoose.connect(MONGODB_URI);
 
  app.get("/scrape", function(req, res){
 
