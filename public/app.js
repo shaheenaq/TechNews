@@ -5,16 +5,16 @@ $.getJSON("/articles", function(data){
 		articlePanel.addClass("card-panel black white-text");
 		var heading = $("<h5>").text(data[i].title);
 		heading.attr("data-id" ,data[i]._id);
-		var extra = $("<div>");
-		extra.attr("id", "comments");
-		heading.prepend(extra);
-		var button = $("<div>");
-		button.addClass("right-align");
-		var buttonAnchor = $("<a>").addClass("btn-floating btn-large waves-effect waves-light teal");
-		buttonAnchor.attr("data-id", data[i]._id);
-		var icon = $("<i>").addClass("material-icons").text("mode_edit");
-		buttonAnchor.append(icon);
-		button.append(buttonAnchor);
+		// var extra = $("<div>");
+		// extra.attr("id", "comments");
+		// heading.prepend(extra);
+		// var button = $("<div>");
+		// button.addClass("right-align");
+		// var buttonAnchor = $("<a>").addClass("btn-floating btn-large waves-effect waves-light teal");
+		// buttonAnchor.attr("data-id", data[i]._id);
+		// var icon = $("<i>").addClass("material-icons").text("mode_edit");
+		// buttonAnchor.append(icon);
+		// button.append(buttonAnchor);
 		articlePanel.append(heading);
 		var summary = $("<p>").text(data[i].summary);
 		articlePanel.append(summary);
@@ -23,7 +23,7 @@ $.getJSON("/articles", function(data){
 		linkTag.text(data[i].link);
 		link.append(linkTag);
 		articlePanel.append(link);
-		articlePanel.append(button);
+		// articlePanel.append(button);
 		$("#articles").append(articlePanel);
 		
 
@@ -31,8 +31,9 @@ $.getJSON("/articles", function(data){
 });
 
 
-$(document).on("click",".btn-floating", function(){
+$(document).on("click","h5", function(){
 
+	$("#comments").empty();
 	var thisId = $(this).attr("data-id");
 
 	$.ajax({
@@ -44,8 +45,8 @@ $(document).on("click",".btn-floating", function(){
 
 			$("#comments").append("<h6>" + result.title + "</h6>");
 			$("#comments").append("<input id='titleinput' name='title' placeholder='Title:'>");
-			$("#comments").append("<textarea id='bodyinput' name='body'>Comments:</textarea>");
-			$("#comments").append("<button data-id='" + result._id + "' id='savecomment'>Save</button>");
+			$("#comments").append("<textarea id='bodyinput' name='body'></textarea>");
+			$("#comments").append("<button data-id='" + result._id + "' id='savecomment'>Save Comment</button>");
 
 			if (result.comment) {
 
@@ -56,6 +57,7 @@ $(document).on("click",".btn-floating", function(){
 });
 
 $(document).on("click", "#savecomment", function(){
+	
 	var thisId = $(this).attr("data-id");
 
 	$.ajax({
@@ -73,7 +75,7 @@ $(document).on("click", "#savecomment", function(){
       // Log the response
       console.log(data);
       // Empty the notes section
-      // $("#notes").empty();
+      $("#comments").empty();
     });
 
   // Also, remove the values entered in the input and textarea for note entry
